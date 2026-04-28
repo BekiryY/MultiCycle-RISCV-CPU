@@ -14,6 +14,24 @@ The design is split into three main hierarchical modules:
    - **Datapath** — PC, register file, ALU, immediate extender, and pipeline registers (IR, A, WriteData, ALUOut, Data).
 3. **`mem`** — Unified memory holding both instructions and data, initialized from `riscvtest.txt`.
 
+## 📸 Design Images
+
+### Processor Architecture
+
+![Multicycle RISC-V processor architecture](archi.png)
+
+### Vivado Schematic
+
+The generated Vivado schematic is available here: [schematic.pdf](schematic.pdf)
+
+### Simulation Waveforms
+
+The following waveforms show the processor running the full RISC-V test program across the first and second halves of the simulation.
+
+![Simulation waveform, first half](first_half.png)
+
+![Simulation waveform, second half](second_half.png)
+
 ## 🗂️ File Structure
 
 | File | Description |
@@ -25,6 +43,9 @@ The design is split into three main hierarchical modules:
 | `testbench.sv` | Top-level testbench. Verifies the full processor by running a test program and checking that `mem[100] = 25` is written. |
 | `controller_testbench.sv` | Standalone controller testbench. Verifies all FSM states and control signals for every instruction type. |
 | `riscvtest.txt` | Machine code of the test program (initial memory contents). |
+| `archi.png` | Full processor architecture diagram. |
+| `schematic.pdf` | Vivado-generated processor schematic. |
+| `first_half.png`, `second_half.png` | Simulation waveform screenshots. |
 
 ## 🧪 Simulation & Testing
 
